@@ -31,20 +31,37 @@ int main(){
 		cout << " Enter bet: "; // Prompting user for bet
 		cin >> bet; // Reading In the Bet
 		cout << endl;
+
+		// Create a hand for the user // 
 		Card* c = new(Card); // Creates a Pointer to a new Card c 
-		cout << "Your cards: \n"; 
+		cout << "Your cards: \n";
 		user.addHand(*c); // Add newly created card c to users Hand
 		user.print_hand(); // Print users hand
 		cout << "Do you want another card (y/n)?";
-		cin >> response; 
+		cin >> response;
 		while ((response == "y") && (user.get_total() < 7.5)) {
-			Card * c = new(Card); 
+			Card * c = new(Card);
 			user.addHand(*c);
-			cout << "User's Cards:  \n"; 
-			user.print_hand(); 
+			cout << "User's Cards:  \n";
+			user.print_hand();
 			cout << "Do you want another card (y/n)?";
-			cin >> response; 
+			cin >> response;
 		}
+
+		// Create a hand for the  dealer // 
+		Card* d = new(Card); // Creates a Pointer to a new Card c 
+		cout << "Your cards: \n";
+		dealer.addHand(*d); // Add newly created card c to users Hand
+		dealer.print_hand(); // Print users hand
+		cout << "Do you want another card (y/n)?";
+		cin >> response;
+		while  (dealer.get_total() < 5.5)) {
+			Card * c = new(Card);
+			dealer.addHand(*c);
+			cout << "User's Cards:  \n";
+			dealer.print_hand();
+		}
+
 
 
    return 0;

@@ -18,6 +18,19 @@ using namespace std;
 
 // Stub for main
 int main(){
-   /* --STATEMENTS-- */
+		Player user(100);
+		Player dealer(900);
+		int bet;
+		string response;
+		int umoney = user.get_money();
+		int dmoney = dealer.get_money();
+		
+
+		cout << "You have " << "$" << user.get_money();
+
+		cout << " Enter bet: ";
+		cin >> bet;
+		cout << endl;
+
    return 0;
 }

@@ -28,13 +28,23 @@ int main(){
 
 		cout << "You have " << "$" << user.get_money(); // Print out users money
 
-		cout << " Enter bet: " // Prompting user for bet
+		cout << " Enter bet: "; // Prompting user for bet
 		cin >> bet; // Reading In the Bet
 		cout << endl;
 		Card* c = new(Card); // Creates a Pointer to a new Card c 
 		cout << "Your cards: \n"; 
 		user.addHand(*c); // Add newly created card c to users Hand
 		user.print_hand(); // Print users hand
+		cout << "Do you want another card (y/n)?";
+		cin >> response; 
+		while ((response == "y") && (user.get_total() < 7.5)) {
+			Card * c = new(Card); 
+			user.addHand(*c);
+			cout << "User's Cards:  \n"; 
+			user.print_hand(); 
+			cout << "Do you want another card (y/n)?";
+			cin >> response; 
+		}
 
 
    return 0;

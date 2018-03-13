@@ -59,9 +59,31 @@ int main(){
 			cout << "Dealer's Cards:  \n";
 			dealer.print_hand();
 		}
-
-
-
-
+		int win; // Win= 1 for user win Win=2 for dealer win Win=3 for draw
+	
+		if (user.get_total() > 7.5)
+			win = 2;
+		else if (user.get_total() == dealer.get_total())
+			win = 3;
+		else if (dealer.get_total() > 7.5)
+			win = 1;
+		else
+			win = 2;   
+                
+		if (win == 1) // User wins
+		{
+			user.update_money(bet);
+			dealer.update_money(-bet);
+			cout << "You win $" << bet << endl;
+		}
+		else if (win == 2)// Dealer wins
+		{
+			user.update_money(-bet);
+			dealer.update_money(-bet);
+			cout << " Too bad. You lose $" << bet << endl;
+		}
+		else
+			cout << "Nobody wins!"; 
+		
    return 0;
 }

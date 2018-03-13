@@ -50,17 +50,16 @@ int main(){
 
 		// Create a hand for the  dealer // 
 		Card* d = new(Card); // Creates a Pointer to a new Card c 
-		cout << "Your cards: \n";
+		cout << "Dealer's cards: \n";
 		dealer.addHand(*d); // Add newly created card c to users Hand
 		dealer.print_hand(); // Print users hand
-		cout << "Do you want another card (y/n)?";
-		cin >> response;
-		while  (dealer.get_total() < 5.5)) {
+		while  (dealer.get_total() < 5.5) {
 			Card * c = new(Card);
 			dealer.addHand(*c);
-			cout << "User's Cards:  \n";
+			cout << "Dealer's Cards:  \n";
 			dealer.print_hand();
 		}
+
 
 
 

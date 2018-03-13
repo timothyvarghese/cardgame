@@ -105,6 +105,84 @@ string Card::get_spanish_rank() const {
    return rankName;
 }
 
+string Card::get_english_rank() const {
+	string rankName;
+	switch (rank) {
+	case AS:
+		rankName = "Ace";
+		break;
+	case DOS:
+		rankName = "Two";
+		break;
+	case TRES:
+		rankName = "Three";
+		break;
+	case CUATRO:
+		rankName = "Four";
+		break;
+	case CINCO:
+		rankName = "Five";
+		break;
+	case SEIS:
+		rankName = "Six";
+		break;
+	case SIETE:
+		rankName = "Seven";
+		break;
+	case SOTA:
+		rankName = "Jack";
+		break;
+	case CABALLO:
+		rankName = "Knight";
+		break;
+	case REY:
+		rankName = "King";
+		break;
+	default: break;
+	}
+	return rankName;
+}
+
+// Accessor: returns a string with the rank of the card in English 
+// This is just a stub! Modify it to your liking.
+double Card::get_total() const {
+	double total;
+	switch (rank) {
+	case AS:
+		total = 1;
+		break;
+	case DOS:
+		total = 2;
+		break;
+	case TRES:
+		total = 3;
+		break;
+	case CUATRO:
+		total = 4;
+		break;
+	case CINCO:
+		total = 5;
+		break;
+	case SEIS:
+		total = 6;
+		break;
+	case SIETE:
+		total = 7;
+		break;
+	case SOTA:
+		total = 0.5;
+		break;
+	case CABALLO:
+		total = 0.5;
+		break;
+	case REY:
+		total = 0.5;
+		break;
+	default: break;
+	}
+	return total;
+}
+
 
 
 // Accessor: returns a string with the suit of the card in English 
@@ -113,11 +191,7 @@ string Card::get_english_suit() const {
    return "";
 }
 
-// Accessor: returns a string with the rank of the card in English 
-// This is just a stub! Modify it to your liking.
-string Card::get_english_rank() const { 
-   return "";
-}
+
 
 
 
@@ -133,17 +207,59 @@ bool Card::operator < (Card card2) const {
    return rank < card2.rank;
 }
 
+Hand::Hand() {
+}
+
+// Accessor: returns the total value of all cards in this hand 
+
+void Hand::print_hand() {
+	for (int i = 0; i < deck.size(); i++)
+		cout << "\t" << deck[i].get_spanish_rank() << " de " << deck[i].get_spanish_suit() << endl;
+}
+double Hand::get_total() const {
+	double sum = 0;
+	for (int i = 0; i < deck.size(); i++)
+		sum = sum + deck[i].get_total();
+	return sum;
+}
+void Hand::AddCard(Card c) {
+	deck.push_back(c);
+}
+
 
 
 /* *************************************************
-   Hand class
-   ************************************************* */
-// Implemente the member functions of the Hand class here.
-
-
-
-/* *************************************************
-   Player class
-   ************************************************* */
+Player class
+************************************************* */
 // Implemente the member functions of the Player class here.
+
+Player::Player(int startMoney)
+{
+	money = startMoney;
+	currentHand = new(Hand);
+}
+int Player::get_money()
+{
+	return money;
+}
+
+void Player::addHand(Card c)
+{
+	currentHand->AddCard(c);
+}
+
+double Player::get_total() const
+{
+	return currentHand->get_total();
+}
+
+void Player::print_hand()
+{
+	currentHand->print_hand();
+}
+
+void Player::update_money(int m)
+{
+	money = money + m;
+}
 

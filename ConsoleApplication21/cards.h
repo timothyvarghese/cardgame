@@ -63,7 +63,7 @@ class Hand {
 public:
 	// A vector of Cards
 	Hand();
-	void AddCard(Card c);
+	void AddCard(Card c); // This adds a Card c this hand
 	double get_total() const; // return a total for the hand
 	void print_hand(); // print hand
 

@@ -86,6 +86,8 @@ int main() {
 		}
 		else
 			cout << "Nobody wins!";
+		user.clearHand();  // Reset the users Hand
+		dealer.clearHand(); // Reset the dealers Hand
 	} // End of the while loop across all games
 		
    return 0;

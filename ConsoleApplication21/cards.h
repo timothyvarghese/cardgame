@@ -66,6 +66,7 @@ public:
 	void AddCard(Card c); // This adds a Card c this hand
 	double get_total() const; // return a total for the hand
 	void print_hand(); // print hand
+	void clearHand(); 
 
 private:
 	vector <Card> deck; // deck is a vector of type card
@@ -78,6 +79,7 @@ public:
 	//    Assigns initial amount of money
 	Player(int m);
 	void addHand(Card c);
+	void clearHand(); 
 	int get_money(); // Returns the amount of money that the player has
 	double get_total() const; // return a total for the Player's Hand
 	void print_hand(); // print user's cards

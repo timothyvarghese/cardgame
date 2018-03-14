@@ -226,6 +226,11 @@ void Hand::AddCard(Card c) {
 	deck.push_back(c);
 }
 
+void Hand::clearHand() {
+	deck.clear();
+}
+
+
 
 
 /* *************************************************
@@ -248,6 +253,10 @@ void Player::addHand(Card c)
 	currentHand->AddCard(c);
 }
 
+void Player::clearHand()
+{
+	currentHand->clearHand();
+}
 double Player::get_total() const
 {
 	return currentHand->get_total();

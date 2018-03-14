@@ -17,14 +17,16 @@ using namespace std;
 
 
 // Stub for main
-int main(){
-		Player user(100); // Create a user who is a player with initial cash of 100
-		Player dealer(900); // Create a dealer who is also a player with cash of 900
-		int bet; // variable that holds the users bet
-		string response;
-		int umoney = user.get_money();
-		int dmoney = dealer.get_money();
-		
+int main() {
+	Player user(100); // Create a user who is a player with initial cash of 100
+	Player dealer(900); // Create a dealer who is also a player with cash of 900
+	int bet; // variable that holds the users bet
+	string response;
+	int umoney = user.get_money();
+	int dmoney = dealer.get_money();
+
+	while ((user.get_money() > 0) && (dealer.get_money() > 0))
+	{
 
 		cout << "You have " << "$" << user.get_money(); // Print out users money
 
@@ -53,14 +55,14 @@ int main(){
 		cout << "Dealer's cards: \n";
 		dealer.addHand(*d); // Add newly created card c to users Hand
 		dealer.print_hand(); // Print users hand
-		while  (dealer.get_total() < 5.5) {
+		while (dealer.get_total() < 5.5) {
 			Card * c = new(Card);
 			dealer.addHand(*c);
 			cout << "Dealer's Cards:  \n";
 			dealer.print_hand();
 		}
 		int win; // Win= 1 for user win Win=2 for dealer win Win=3 for draw
-	
+
 		if (user.get_total() > 7.5)
 			win = 2;
 		else if (user.get_total() == dealer.get_total())
@@ -68,8 +70,8 @@ int main(){
 		else if (dealer.get_total() > 7.5)
 			win = 1;
 		else
-			win = 2;   
-                
+			win = 2;
+
 		if (win == 1) // User wins
 		{
 			user.update_money(bet);
@@ -83,7 +85,8 @@ int main(){
 			cout << " Too bad. You lose $" << bet << endl;
 		}
 		else
-			cout << "Nobody wins!"; 
+			cout << "Nobody wins!";
+	} // End of the while loop across all games
 		
    return 0;
 }

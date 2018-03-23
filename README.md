@@ -2,16 +2,24 @@
 PROJECT HISTORY:
 
 v1: Professor Salazar's files
+
 v2: Added missing class functions
+
 v3: Basic Test of Player Class
+
 v4: Created a card and added to user hand 
+
 v5: Create a full user hand
+
 v6: Create dealer Hand as well
+
 v7: fixed some bugs
+
 v8: playing one game
+
 v9: loop across all games till money runs out
-v10: fix bug to reset each deck after every game and add new member 
-functions
+
+v10: fix bug to reset each deck after every game
 
 TEST CASES:
 1. The examples in CCLE
